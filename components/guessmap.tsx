@@ -17,7 +17,8 @@ const GuessMap = (props: MapProps) => {
             dragend() {
                 const marker = markerRef.current as any;
                 if (marker != null) {
-                    setGuess(marker.getLatLng())
+                    const guessLatLng = marker.getLatLng();
+                    setGuess([guessLatLng.lat, guessLatLng.lng]);
                 }
             },
         }),
