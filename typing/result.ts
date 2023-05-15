@@ -1,0 +1,1 @@
+export type ResultType = "Success" | "Partial" | "Failure";

@@ -1,5 +1,5 @@
-import { useMemo, useRef, useState } from "react";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { useMemo, useRef } from "react";
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
 
 interface MapProps {
     center: Coordinate;

@@ -4,10 +4,10 @@ import "tailwindcss/tailwind.css"
 import "../styles/global.css"
 
 const App = (props: AppProps) => {
-    const { Component } = props;
+    const { Component, pageProps } = props;
     return (
         <Layout>
-            <Component />
+            <Component {...pageProps} />
         </Layout>
     )
 }
