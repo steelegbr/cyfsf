@@ -7,7 +7,7 @@ import { LatLngExpression } from "leaflet";
 import { distanceToResult } from "@/services/resultservice";
 
 interface GuessProps {
-    guess: Guess
+    guess: any
     constituencyCoords: number[][]
 }
 
@@ -20,7 +20,7 @@ export default (props: GuessProps) => {
 
     return (
         <>
-            <ResultHeader result={result} distance={guess.distance} />
+            <ResultHeader result={result} distance={guess.distance} id={guess.id} />
             <ResultMap
                 latitude={parseFloat(guess.latitude.toString())}
                 longitude={parseFloat(guess.longitude.toString())}

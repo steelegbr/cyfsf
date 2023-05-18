@@ -5,7 +5,8 @@ import Head from "next/head";
 
 interface ResultProps {
     result: ResultType,
-    distance: Decimal
+    distance: Decimal,
+    id: string
 }
 
 const generateDescription = (result: ResultType, distance: Decimal) => {
@@ -31,12 +32,14 @@ const generateDescription = (result: ResultType, distance: Decimal) => {
 }
 
 const ResultHeader = (props: ResultProps) => {
-    const { result, distance } = props;
+    const { result, distance, id } = props;
     const title = titleMap.get(result);
     return (
         <>
             <Head>
                 <title>{title}</title>
+                <meta property="og:title" content="Can You Find Sherwood Forest - {title}" />
+                <meta property="og:image" content={`/api/results/og/${id}`} />
             </Head>
             <h1>{title}</h1>
             {generateDescription(result, distance)}
