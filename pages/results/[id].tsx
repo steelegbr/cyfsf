@@ -2,9 +2,9 @@ import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 import { Guess, PrismaClient } from "@prisma/client";
 import ResultHeader from "@/components/resultheader";
-import { ResultType } from "@/typing/result";
 import { constituencyCoords } from "@/services/coordservice";
 import { LatLngExpression } from "leaflet";
+import { distanceToResult } from "@/services/resultservice";
 
 interface GuessProps {
     guess: Guess
@@ -12,18 +12,7 @@ interface GuessProps {
 }
 
 const prisma = new PrismaClient();
-const threshold = 5;
 const ResultMap = dynamic(() => import("../../components/resultmap"), { ssr: false });
-
-const distanceToResult: ResultType = (distance: number) => {
-    if (distance == 0) {
-        return "Success";
-    }
-    if (distance <= threshold) {
-        return "Partial";
-    }
-    return "Failure";
-}
 
 export default (props: GuessProps) => {
     const { guess } = props;

@@ -1,3 +1,4 @@
+import { titleMap } from "@/services/resultservice";
 import { ResultType } from "@/typing/result";
 import { Decimal } from "@prisma/client/runtime";
 import Head from "next/head";
@@ -6,14 +7,6 @@ interface ResultProps {
     result: ResultType,
     distance: Decimal
 }
-
-const titleMap = new Map<ResultType, string>(
-    [
-        ["Success", "🥳 Congratulations!"],
-        ["Partial", "😬 So Close!"],
-        ["Failure", "😢 Oh Dear!"]
-    ]
-);
 
 const generateDescription = (result: ResultType, distance: Decimal) => {
     if (result == "Success") {

@@ -3,6 +3,7 @@ import { distance, point } from "turf";
 import booleanPointInPolygon from "@turf/boolean-point-in-polygon";
 import { PrismaClient } from "@prisma/client";
 import { constituency, constituencyPoints } from "@/services/coordservice";
+import { Guess } from "@/typing/api";
 
 const prisma = new PrismaClient();
 
