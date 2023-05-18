@@ -1,20 +1,51 @@
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import { useCallback, useState } from "react";
 
-const Home = () => {
+const GuessMap = dynamic(() => import("../components/guessmap"), { ssr: false });
+const ukCentre: Coordinate = [54.003644, -2.5478587];
+const startZoom = 5;
+
+const Play = () => {
+    const [guess, setGuess] = useState(ukCentre);
     const router = useRouter();
+    console.log(guess);
 
-    const startGame = () => {
-        router.push("/play");
-    }
+    const handleGuess = useCallback(
+        () => {
+            const body = {
+                longitude: guess[1],
+                latitude: guess[0]
+            };
+            fetch(
+                "/api/guess",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(body)
+                }
+            ).then(
+                async (response) => {
+                    const json = await response.json();
+                    router.push(`/results/${json.id}`);
+                }
+            )
+        },
+        [guess, router]
+    )
 
     return (
         <>
             <h1>Can You Find Sherwood Forest</h1>
             <p>Sherwood Forest is the new name for an old constituency but can you find it on the map?</p>
-            <p>There's only one way to find out!</p>
-            <button onClick={startGame}>Find Sherwood Forest!</button>
+            <GuessMap center={ukCentre} zoom={startZoom} guess={guess} setGuess={setGuess} />
+            <div className="text-center">
+                <button className="guessButton" onClick={handleGuess}>Right Around Here!</button>
+            </div>
         </>
     )
 }
 
-export default Home;
+export default Play;
