@@ -31,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     return {
         props: {
-            guesses: guesses.map((guess) => [parseFloat(guess.longitude.toString()), parseFloat(guess.latitude.toString())]),
+            guesses: guesses.map((guess) => [parseFloat(guess.latitude.toString()), parseFloat(guess.longitude.toString())]),
             distances: distancesSorted
         }
     };
