@@ -19,7 +19,7 @@ interface GuessProps {
 const prisma = new PrismaClient();
 const ResultMap = dynamic(() => import("../../components/resultmap"), { ssr: false });
 
-export default (props: GuessProps) => {
+const Results = (props: GuessProps) => {
     const { guess, url } = props;
     const router = useRouter();
     const result = distanceToResult(guess.distance);
@@ -75,3 +75,5 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         }
     }
 }
+
+export default Results;

@@ -22,7 +22,7 @@ const GuessMap = (props: MapProps) => {
                 }
             },
         }),
-        [],
+        [setGuess],
     )
 
     return (

@@ -23,7 +23,7 @@ const generateDescription = (result: ResultType, distance: number) => {
     }
     return (
         <p>
-            I couldn't find Sherwood Forest constituency, guessing {distance.toString()} miles away. Can you do any better?
+            I couldn&apos;t find Sherwood Forest constituency, guessing {distance.toString()} miles away. Can you do any better?
         </p >
     )
 }

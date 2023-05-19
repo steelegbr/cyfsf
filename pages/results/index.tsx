@@ -16,7 +16,7 @@ const Results = (props: ResultsProps) => {
     return (
         <>
             <h1>Results</h1>
-            <div>Everyone's guesses can be found on the map below:</div>
+            <div>Everyone&apos;s guesses can be found on the map below:</div>
             <ResultsMap guesses={guesses} />
             <DistanceHistogram distances={distances} />
         </>

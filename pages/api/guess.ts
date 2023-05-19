@@ -7,7 +7,7 @@ import { Guess } from "@/typing/api";
 
 const prisma = new PrismaClient();
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const Guess = async (req: NextApiRequest, res: NextApiResponse) => {
     const guess = req.body as Guess;
 
     const guessPoint = point([guess.longitude, guess.latitude]);
@@ -55,3 +55,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     res.status(200).json({ "id": dbGuess.id });
 }
+
+export default Guess;
