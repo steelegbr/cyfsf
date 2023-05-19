@@ -21,15 +21,15 @@ const Menu = () => {
             </div>
             <div className={`w-full ${showDropdown ? "block" : "hidden"} flex-grow lg:flex lg:items-center lg:w-auto`}>
                 <div className="text-sm lg:flex-grow">
-                    <a href="/" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    <Link href="/" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Play
-                    </a>
-                    <a href="/results" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    </Link>
+                    <Link href="/results" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Results
-                    </a>
-                    <a href="/about" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                    </Link>
+                    <Link href="/about" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
                         About
-                    </a>
+                    </Link>
                 </div>
             </div>
         </nav>

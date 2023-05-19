@@ -16,7 +16,7 @@ const Results = (props: ResultsProps) => {
     return (
         <>
             <h1>Results</h1>
-            <div>Everyone's guesses can be found on the map below:</div>
+            <div>Everyone&apos;s guesses can be found on the map below:</div>
             <ResultsMap guesses={guesses} />
             <DistanceHistogram distances={distances} />
         </>
@@ -26,12 +26,12 @@ const Results = (props: ResultsProps) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const guesses = await prisma.guess.findMany();
 
-    const distances = guesses.map((guess) => parseFloat(guess.distance));
+    const distances = guesses.map((guess) => parseFloat(guess.distance.toString()));
     const distancesSorted = distances.sort();
 
     return {
         props: {
-            guesses: guesses.map((guess) => [parseFloat(guess.longitude), parseFloat(guess.latitude)]),
+            guesses: guesses.map((guess) => [parseFloat(guess.latitude.toString()), parseFloat(guess.longitude.toString())]),
             distances: distancesSorted
         }
     };

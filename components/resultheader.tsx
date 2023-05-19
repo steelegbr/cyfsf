@@ -13,7 +13,7 @@ const generateDescription = (result: ResultType, distance: Decimal) => {
     if (result == "Success") {
         return (
             <p>
-                You're spot on target and managed to find Sherwood Forest constituency!
+                You&apos;re spot on target and managed to find Sherwood Forest constituency!
             </p>
         )
     }
@@ -26,7 +26,7 @@ const generateDescription = (result: ResultType, distance: Decimal) => {
     }
     return (
         <p>
-            Unfortunately you were nowhere near at <b>{distance.toString()} miles</b> from Sherwood Forest constituency. It's in Nottinghamshire, just a few miles north of Nottingham.
+            Unfortunately you were nowhere near at <b>{distance.toString()} miles</b> from Sherwood Forest constituency. It&apos;s in Nottinghamshire, just a few miles north of Nottingham.
         </p >
     )
 }
