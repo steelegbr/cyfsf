@@ -58,6 +58,14 @@ const Results = (props: GuessProps) => {
     )
 }
 
+const urlToPath = (url: string) => {
+    const dotIndex = url.indexOf(".");
+    if (dotIndex < 0) {
+        return url;
+    }
+    return url.slice(0, dotIndex);
+}
+
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const guess = await prisma.guess.findUnique({
         where: {
