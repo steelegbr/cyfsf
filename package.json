@@ -22,6 +22,7 @@
     "leaflet": "^1.9.3",
     "next": "13.4.2",
     "next-share": "^0.20.0",
+    "nextjs-google-analytics": "^2.3.3",
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
