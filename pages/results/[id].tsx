@@ -5,7 +5,6 @@ import ResultHeader from "@/components/resultheader";
 import { constituencyCoords } from "@/services/coordservice";
 import { LatLngExpression } from "leaflet";
 import { distanceToResult } from "@/services/resultservice";
-import { FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton } from "next-share";
 import { IncomingMessage } from "http";
 import { useRouter } from "next/router";
 import { useCallback } from "react";
@@ -18,12 +17,12 @@ interface GuessProps {
 
 const prisma = new PrismaClient();
 const ResultMap = dynamic(() => import("../../components/resultmap"), { ssr: false });
+const Social = dynamic(() => import("../../components/social"), { ssr: false });
 
 const Results = (props: GuessProps) => {
     const { guess, url } = props;
     const router = useRouter();
     const result = distanceToResult(guess.distance);
-    const socialText = result === "Success" ? "I managed to find Sherwood Forest constituency. Can you?" : `I got within ${guess.distance} mile(s) of Sherwood Forest consistuency. Can you find it?`;
 
     const startGame = useCallback(
         () => {
@@ -42,15 +41,7 @@ const Results = (props: GuessProps) => {
                 nearestLongitude={parseFloat(guess.intersectLongitude.toString())}
                 constituencyCoords={props.constituencyCoords as LatLngExpression[]}
             />
-            <div className="flex space-x-4">
-                <span>Share your result:</span>
-                <FacebookShareButton url={url} quote={socialText}>
-                    <FacebookIcon size={32} />
-                </FacebookShareButton>
-                <TwitterShareButton url={url} title={socialText}>
-                    <TwitterIcon size={32} />
-                </TwitterShareButton>
-            </div>
+            <Social result={result} guess={guess} />
             <div>
                 <button onClick={startGame}>Play Again?</button>
             </div>
