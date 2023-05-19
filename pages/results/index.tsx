@@ -26,12 +26,12 @@ const Results = (props: ResultsProps) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const guesses = await prisma.guess.findMany();
 
-    const distances = guesses.map((guess) => parseFloat(guess.distance));
+    const distances = guesses.map((guess) => parseFloat(guess.distance.toString()));
     const distancesSorted = distances.sort();
 
     return {
         props: {
-            guesses: guesses.map((guess) => [parseFloat(guess.longitude), parseFloat(guess.latitude)]),
+            guesses: guesses.map((guess) => [parseFloat(guess.longitude.toString()), parseFloat(guess.latitude.toString())]),
             distances: distancesSorted
         }
     };

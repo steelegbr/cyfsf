@@ -5,7 +5,7 @@ interface ResultsMapProps {
 }
 
 const ResultsMap = (props: ResultsMapProps) => {
-    const { guesses } = props;
+    const guesses: any = props.guesses;
 
     return (
         <MapContainer bounds={guesses} scrollWheelZoom={true} className="map">
@@ -14,7 +14,7 @@ const ResultsMap = (props: ResultsMapProps) => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {guesses.map(
-                (guess, index) => (
+                (guess: any, index: number) => (
                     <Marker key={index} position={guess} />
                 )
             )}

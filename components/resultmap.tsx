@@ -14,7 +14,7 @@ const ResultMap = (props: ResultMapProps) => {
     const center: [number, number] = [((latitude + nearestLatitude) / 2), ((longitude + nearestLongitude) / 2)];
     const guess: [number, number] = [latitude, longitude];
     const line: [number, number][] = [[nearestLatitude, nearestLongitude], guess];
-    const bounds = [guess, ...constituencyCoords];
+    const bounds: any = [guess, ...constituencyCoords];
 
     return (
         <MapContainer center={center} bounds={bounds} scrollWheelZoom={true} className="map">

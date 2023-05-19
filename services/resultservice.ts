@@ -10,7 +10,7 @@ export const titleMap = new Map<ResultType, string>(
     ]
 );
 
-export const distanceToResult: ResultType = (distance: number) => {
+export const distanceToResult = (distance: number) => {
     if (distance == 0) {
         return "Success";
     }

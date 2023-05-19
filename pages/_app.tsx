@@ -8,8 +8,10 @@ const App = (props: AppProps) => {
     const { Component, pageProps } = props;
     return (
         <Layout>
-            <GoogleAnalytics trackPageViews />
-            <Component {...pageProps} />
+            <>
+                <GoogleAnalytics trackPageViews />
+                <Component {...pageProps} />
+            </>
         </Layout>
     )
 }
