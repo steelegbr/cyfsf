@@ -2,12 +2,12 @@ import { FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton } fr
 
 interface SocialProps {
     result: string,
-    guess: any
+    guess: any,
+    url: string
 }
 
-const Social = ({ result, guess }: SocialProps) => {
+const Social = ({ result, guess, url }: SocialProps) => {
     const socialText = result === "Success" ? "I managed to find Sherwood Forest constituency. Can you?" : `I got within ${guess.distance} mile(s) of Sherwood Forest consistuency. Can you find it?`;
-    const url = window.location.href;
 
     return (
         <div className="flex space-x-4">

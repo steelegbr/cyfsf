@@ -41,7 +41,7 @@ const Results = (props: GuessProps) => {
                 nearestLongitude={parseFloat(guess.intersectLongitude.toString())}
                 constituencyCoords={props.constituencyCoords as LatLngExpression[]}
             />
-            <Social result={result} guess={guess} />
+            <Social result={result} guess={guess} url={url} />
             <div>
                 <button onClick={startGame}>Play Again?</button>
             </div>
@@ -64,7 +64,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         }
     });
     const request = context.req as IncomingMessage;
-    const url = new URL(request.url || "/", `https://${request.headers.host}`);
+    const url = `https://${request.headers.host}`;
 
     return {
         props: {
