@@ -16,7 +16,7 @@ const Layout = (props: LayoutProps) => {
                     crossorigin="" />
             </Head>
             <Menu />
-            <div className="container mx-auto">
+            <div className="container mx-auto flex flex-col space-y-4">
                 {children}
             </div>
         </>

@@ -1,11 +1,15 @@
 import { useRouter } from "next/router";
+import { useCallback } from "react";
 
 const Home = () => {
     const router = useRouter();
 
-    const startGame = () => {
-        router.push("/");
-    }
+    const startGame = useCallback(
+        () => {
+            router.push("/")
+        },
+        [router]
+    );
 
     return (
         <>
