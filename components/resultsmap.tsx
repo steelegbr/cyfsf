@@ -1,11 +1,13 @@
-import { MapContainer, Marker, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, TileLayer, Polygon } from "react-leaflet";
 
 interface ResultsMapProps {
-    guesses: number[][2]
+    guesses: any
+    constituencyCoords: any
 }
 
 const ResultsMap = (props: ResultsMapProps) => {
     const guesses: any = props.guesses;
+    const constituencyCoords: any = props.constituencyCoords;
 
     return (
         <MapContainer bounds={guesses} scrollWheelZoom={true} className="map">
@@ -18,6 +20,7 @@ const ResultsMap = (props: ResultsMapProps) => {
                     <Marker key={index} position={guess} />
                 )
             )}
+            <Polygon positions={constituencyCoords} />
         </MapContainer>
     )
 }
